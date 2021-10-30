@@ -1,19 +1,26 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-4">
-        <div class="list-group">
-            <!-- <a [routerLink]="['/servers', 100, 'edit']" [queryParams]="{ allowEdit: '1' }" fragment="loading" href="#" class="list-group-item" *ngFor="let server of servers">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <!-- <a [routerLink]="['/servers', 100, 'edit']" [queryParams]="{ allowEdit: '1' }" fragment="loading" href="#" class="list-group-item" *ngFor="let server of servers">
         {{ server.name }}
       </a> -->
 
-            <a [routerLink]="['/servers', server.id]" [queryParams]="{ allowEdit: '1' }" fragment="loading" href="#" class="list-group-item" *ngFor="let server of servers">
+      <a
+        [routerLink]="['/servers', server.id]"
+        [queryParams]="{ allowEdit: server.id === 3 ? '1' : '0' }"
+        fragment="loading"
+        href="#"
+        class="list-group-item"
+        *ngFor="let server of servers"
+      >
         {{ server.name }}
       </a>
-        </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-        <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
-        <router-outlet></router-outlet>
-        <!-- <p>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
+    <router-outlet></router-outlet>
+    <!-- <p>
             Edit Server
             <app-edit-server></app-edit-server>
         </p>
@@ -22,5 +29,5 @@
             Server
             <app-server></app-server>
         </p> -->
-    </div>
+  </div>
 </div>
