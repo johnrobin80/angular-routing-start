@@ -13,6 +13,8 @@ import { ServerComponent } from "./servers/server/server.component";
 import { ServersService } from "./servers/servers.service";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { AuthService } from "./auth.service";
+import { AuthGuard } from "./auth-guard.service";
 
 // const appRoutes: Routes = [
 //   { path: "", component: HomeComponent },
@@ -53,7 +55,7 @@ import { AppRoutingModule } from "./app-routing.module";
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   // imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
-  providers: [ServersService],
+  providers: [ServersService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
